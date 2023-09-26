@@ -1,0 +1,87 @@
+% !TeX spellcheck = es_ES
+\documentclass[12pt, a4paper, twoside]{report}   % Tamaño de papel, de fuente y márgenes
+\usepackage[spanish]{babel}  % Idioma y codificación, para poder usar
+\usepackage[utf8x]{inputenc} % tildes, eñes, etc., sin problemas
+\usepackage[T1]{fontenc}
+\usepackage{pdfpages}
+% ============================================================|
+%                                                             |
+% Plantilla para TFG del Dpto. de Informática de la EPSJ v1.0 |
+%                                                             |
+% Ajustada según la normativa de estilo indicada por la EPSJ  |
+% en el documento https://eps.ujaen.es/sites/centro_epsj/files|
+% /uploads/documents/grados/TFG/criteriosYestilo_TFG.pdf      |
+%                                                             |
+%    - A4 con márgenes de 2.5cm                               |
+%    - Intelineado de 1.5 líneas                              |
+%    - Primera línea de cada párrafo con sangrado             |
+%    - Fuente Arial de 12pt                                   |
+%    - Cabecera con nombre de estudiante y título de TFG      |
+%    - Pie con nombre del centro y nº de página               |
+%    - Portada oficial EPSJ - Dpto. Informática con datos     |
+%                                                             |
+% 2020/09/25 - Francisco Charte Ojeda                         |
+% CC0 1.0 Universal (CC0 1.0)                                 |
+% https://creativecommons.org/publicdomain/zero/1.0/deed.es   |
+%                                                             |
+%=============================================================|
+\usepackage{sectsty}
+\subsectionfont{\normalfont\itshape}
+
+% ==== Introducir aquí el nombre del estudiante
+\def\Estudiante{Nombre Apellido Apellido}
+
+% ==== Introducir aquí el nombre de los tutores. Si solo hay uno dejar las llaves de \TutorB vacías
+\def\TutorA{Nombre Apellido Apellido}
+\def\TutorB{}
+
+% ==== Introducir aquí el título de completo y abreviado (para las cabeceras) del TFG
+\def\TituloTFG{Título}
+\def\TituloAbreviado{Título abreviado}
+
+% ==== Introducir aquí el mes y año de presentación del TFG
+\def\Fecha{Día de Mes de Año}
+
+\input{Portada.tex}
+\renewcommand{\arraystretch}{1.4}
+\renewcommand{\baselinestretch}{1.5}
+\begin{document}
+    
+    \Portada~			
+
+    \pagenumbering{roman}  % Numeración romana para los agradecimientos, dedicatoria y tablas de contenidos
+
+    %\input{Agradecimientos.tex} % Editar este archivo para introducir los agradecimientos/dedicatoria
+
+    \tableofcontents  % Tabla de contenidos
+
+% ===== Comentar o eliminar las líneas de los índices que no deseen incluirse al inicio de la memoria
+
+    \clearpage\thispagestyle{empty}\cleardoublepage
+    \listoffigures		% Índice de figuras
+
+    \clearpage\thispagestyle{empty}\cleardoublepage
+    \listoftables 		% Índice de tablas
+
+    \clearpage\thispagestyle{empty}\cleardoublepage
+    \pagenumbering{arabic} % Numeración arábiga para el resto del documento
+
+% ===== Archivos LaTeX con los distintos capítulos que componen la memoria
+
+\input{chapters/resumen}
+\input{chapters/abstract}
+\input{chapters/antecedentes}
+\input{chapters/metodo}
+\input{chapters/resultado}
+\input{chapters/discusion}
+\input{chapters/conclusiones}
+\clearpage\thispagestyle{empty}\cleardoublepage
+
+% ===== Configuración de la bibliografía
+
+\pagenumbering{roman}  % Numeración romana para el índice
+\bibliographystyle{plainnat}
+\bibliography{bibliografia}
+\addcontentsline{toc}{chapter}{Bibliografía}
+
+\end{document}
